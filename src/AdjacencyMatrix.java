@@ -11,7 +11,7 @@ public final class AdjacencyMatrix {
         this.nodes = buildNodeSet(countOfNodes, matrix);
     }
 
-    public void checkForBipartite() throws BipartiteGraphException {
+    public void checkForBipartite() throws BipartiteCheckFailedException {
         for (Node node : nodes) {
             List<NodeChain> chains = new ArrayList<>();
             chains.add(new NodeChain(node));

@@ -28,7 +28,7 @@ public final class NodeChain {
         return chainedNodes.size();
     }
 
-    public List<NodeChain> walkAround() throws BipartiteGraphException {
+    public List<NodeChain> walkAround() throws BipartiteCheckFailedException {
         List<NodeChain> nextChains = new ArrayList<>();
 
         Node lastNode = chainedNodes.get(chainedNodes.size() - 1);
@@ -43,7 +43,7 @@ public final class NodeChain {
             if (chainedNodes.contains(linkedNode)) {
                 NodeChain subChain = chainFrom(linkedNode);
                 if (subChain.length() % 2 != 0) {
-                    throw new BipartiteGraphException(subChain);
+                    throw new BipartiteCheckFailedException(subChain);
                 }
             } else {
                 NodeChain newChain = duplicate();

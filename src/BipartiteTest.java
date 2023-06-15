@@ -39,7 +39,7 @@ public final class BipartiteTest {
         try {
             matrix.checkForBipartite();
             matrix.findColorParts().forEach((color, part) -> result.add(part.toString()));
-        } catch (BipartiteGraphException ex) {
+        } catch (BipartiteCheckFailedException ex) {
             result.add(NOT_BIPARTITE_RESULT);
             result.add(ex.getChain().toString());
         }
