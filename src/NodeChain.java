@@ -45,7 +45,7 @@ public final class NodeChain {
                 if (subChain.length() % 2 != 0) {
                     throw new BipartiteCheckFailedException(subChain);
                 }
-            } else {
+            } else if (!linkedNode.hasColor()) {
                 NodeChain newChain = duplicate();
                 newChain.chainedNodes.add(linkedNode);
                 nextChains.add(newChain);
